@@ -1,8 +1,10 @@
 #include "M3USDigitalEncoder.h"
 #include "Arduino.h"
 
+long g_timeout = 20000;
+
 M3USDigitalEncoder::M3USDigitalEncoder(Pin pwm)
-    : m_pwm(pwm), m_timeout(20000) {
+    : m_pwm(pwm) {
     setup();
 }
 
@@ -11,7 +13,7 @@ void M3USDigitalEncoder::setup() {
 }
 
 unsigned long M3USDigitalEncoder::pulse() {
-    return pulseIn(m_pwm, HIGH, m_timeout);
+    return pulseIn(m_pwm, HIGH, g_timeout);
 }
 
 float M3USDigitalEncoder::angle(){

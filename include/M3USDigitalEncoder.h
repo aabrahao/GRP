@@ -11,7 +11,6 @@ public:
     float angle(); 
 private:
     Pin m_pwm;
-    int m_timeout;
 };
 
 #endif
